@@ -1,0 +1,12 @@
+<div class="audio-player flex items-center space-x-4">
+  <div #wave class="flex-grow h-2 bg-gray-200 rounded-full overflow-hidden"></div>
+  <button (click)="playPause()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+    @if (isPlaying()) {
+      <span>Pause</span>
+    } @else {
+      Play
+    }
+  </button>
+</div>
+
+

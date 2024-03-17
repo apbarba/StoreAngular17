@@ -1,0 +1,25 @@
+<div class="flex space-x-4 mt-5">
+  <div class="w-1/4">
+    <div class="bg-white shadow-md rounded-md p-4">
+      <h2 class="text-lg font-bold mb-4">Categorías</h2>
+      <ul>
+        <li class="mb-2">
+          <a routerLink="/" class="text-blue-500 font-semibold">All</a>
+        </li>
+        @for (category of categories(); track category) {
+          <li class="mb-2">
+            <a routerLink="/" [queryParams]="{category_id: category.id}" class="text-gray-700 hover:text-blue-500">{{ category.name }}</a>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+  <div class="grid grid-cols-4 gap-8 w-full"> <!--Coloca las imagenes/productos de tres en tres en filas-->
+    @for (product of products(); track product) {
+      <app-product
+        [product]="product"
+      (addToCart)="addToCart($event)"></app-product>
+    }
+
+  </div>
+</div>
